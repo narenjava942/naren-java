@@ -1,0 +1,10 @@
+flowchart TD
+A[Client Request] --> B[REST Controller: /api/rewards]
+B --> C[RewardService]
+C --> D[Fetch Customer from H2 DB]
+C --> E[Fetch Transactions in Date Range]
+E --> F[Calculate Points per Transaction]
+F --> G[Group Points by Month]
+G --> H[Sum Total Points]
+H --> I[Create Response DTO]
+I --> J[Send JSON Response to Client]
