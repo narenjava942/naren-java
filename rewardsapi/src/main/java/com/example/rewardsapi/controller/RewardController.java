@@ -25,6 +25,7 @@ public class RewardController {
         return ResponseEntity.ok(rewardService.getAllRewards(startMonth, endMonth));
     }
 
+
     @GetMapping("/{customerId}")
     public ResponseEntity<RewardResponseDto> getForCustomer(@PathVariable String customerId, @RequestParam String start, @RequestParam String end) {
         YearMonth startMonth = YearMonth.parse(start);

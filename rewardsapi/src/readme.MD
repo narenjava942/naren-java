@@ -1,4 +1,5 @@
 flowchart TD
+
 A[Customer Transaction] --> B[Check Transaction Amount]
 B -->|> $100| C[Points = 2 × (Amount - 100) + 1 × 50]
 B -->|Between $50 and $100| D[Points = 1 × (Amount - 50)]
@@ -76,3 +77,14 @@ JDBC URL: jdbc:h2:mem:testdb
 Test API
 
 Visit: http://localhost:8080/api/rewards
+=======
+A[Client Request] --> B[REST Controller: /api/rewards]
+B --> C[RewardService]
+C --> D[Fetch Customer from H2 DB]
+C --> E[Fetch Transactions in Date Range]
+E --> F[Calculate Points per Transaction]
+F --> G[Group Points by Month]
+G --> H[Sum Total Points]
+H --> I[Create Response DTO]
+I --> J[Send JSON Response to Client]
+

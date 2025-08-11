@@ -1,5 +1,6 @@
 package com.example.rewardsapi.controller;
 
+
 import com.example.rewardsapi.dto.MonthlyRewardDto;
 import com.example.rewardsapi.dto.RewardResponseDto;
 import com.example.rewardsapi.service.RewardService;
@@ -75,3 +76,4 @@ class RewardControllerTest {
 
 
 }
+
