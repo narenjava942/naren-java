@@ -49,4 +49,22 @@ public class RewardServiceTest {
         assertEquals(2, resp.getMonthly().size());
         assertEquals(120, resp.getTotalPoints());
     }
+
+    //Negative test case
+    @Test
+    void testCalculatePointsForAmountNegativeCases() {
+        // Amount exactly at $50 threshold - should give 0
+        assertEquals(0, rewardService.calculatePointsForAmount(50.0));
+
+        // Amount exactly at $100 threshold - should give 50
+        assertEquals(50, rewardService.calculatePointsForAmount(100.0));
+
+        // Amount is negative (invalid transaction) - expect 0 or handle via exception
+        assertEquals(0, rewardService.calculatePointsForAmount(-10.0));
+
+        // Amount is zero - should give 0 points
+        assertEquals(0, rewardService.calculatePointsForAmount(0.0));
+    }
+
+
 }
